@@ -77,7 +77,7 @@ const handleSubmit = async (event) => {
     body: JSON.stringify({ prompt: data.get('prompt') }),
   });
   clearInterval(loadInterval);
-  messageDiv.innerHTML = '';
+  messageDiv.textContent = '';
   if(response.ok) {
     const data = await response.json();
     console.log(data);
@@ -85,7 +85,7 @@ const handleSubmit = async (event) => {
     typeText(messageDiv, parsedData);
   } else {
     const err = await response.text();
-    messageDiv.innerHTML = 'Sorry, something went wrong. Please try again later.';
+    messageDiv.textContent = 'Sorry, something went wrong. Please try again later.';
     alert(err);
   }
 };
